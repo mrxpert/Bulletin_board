@@ -1,13 +1,21 @@
 <div class="center jumbotron welcome-block">
   <h1>Welcome to the Bulletin board</h1>
-
-  <h2>This is the home page</h2>
+  
+  <% if user_signed_in? %>
+    <h2>Signed in as <%= current_user.email %></h2>
+  <% else %>
+    <h2>This is the home page</h2>
+  <% end %>
 
   <div class="welcome-block-buttons">
-    <%= link_to "Sign up now!", "#", class: "btn btn-lg btn-primary" %>
+    <% if user_signed_in? %>
+      <%= link_to "Go to adverts", "#", class: "btn-default btn-lg" %>
+    <% else %>
+      <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
 
-    <b>or</b>
+      <b>or</b>
 
-    <%= link_to "Go to adverts", "#", class: "btn-default btn-lg" %>
+      <%= link_to "Go to adverts", "#", class: "btn-default btn-lg" %>
+    <% end %>
   </div>
 </div>
