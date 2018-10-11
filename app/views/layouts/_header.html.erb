@@ -2,7 +2,11 @@
   <div class="container">
     <%= link_to "BulletIn Board", root_path, id: "logo" %>
     <nav>
-      <%= link_to "Log In", "#", class: "align-middle navbar-right btn btn-primary btn-md text-white header-login-btn" %>
+      <% if user_signed_in? %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "align-middle navbar-right btn btn-warning btn-md text-white header-login-btn" %>
+      <% else %>
+        <%= link_to "Log In", new_user_session_path, class: "align-middle navbar-right btn btn-primary btn-md text-white header-login-btn" %>
+      <% end %>
     </nav>
   </div>
 </header>
