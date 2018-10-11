@@ -1,9 +1,11 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <%= link_to "BulletIn Board", root_path, id: "logo" %>
-    <nav>
+    <nav class="nav navbar-nav navbar-right text-white">
       <% if user_signed_in? %>
-        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "align-middle navbar-right btn btn-warning btn-md text-white header-login-btn" %>
+        <%= link_to current_user.email, "#", class: "text-white btn btn-md header-login-btn" %>
+        <%= link_to "profile", "#", class: "btn btn-info btn-md header-login-btn" %>
+        <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-warning btn-md header-login-btn" %>
       <% else %>
         <%= link_to "Log In", new_user_session_path, class: "align-middle navbar-right btn btn-primary btn-md text-white header-login-btn" %>
       <% end %>
