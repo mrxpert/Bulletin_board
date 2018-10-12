@@ -2,7 +2,7 @@
   <h1>Welcome to the Bulletin board</h1>
   
   <% if user_signed_in? %>
-    <h2>Signed in as <%= current_user.email %></h2>
+    <h2>Hello, <%= current_user.name %>!</h2>
   <% else %>
     <h2>This is the home page</h2>
   <% end %>
