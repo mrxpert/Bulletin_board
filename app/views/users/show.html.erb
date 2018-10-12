@@ -1,0 +1,13 @@
+<div class="center jumbotron">
+  <h3>Your profile:</h1>
+  
+  <ul>
+    <li><b>Name:</b> <%= current_user.name %></li>
+    <li><b>E-mail:</b> <%= current_user.email %></li>
+    <li><b>Password:</b> <%= "\u2022" * 10 %></li>
+  </ul>
+
+  <div>
+    <%= link_to "Edit profile", edit_user_registration_path, class: "btn btn-primary" %>
+  </div>
+</div>
